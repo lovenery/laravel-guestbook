@@ -63,9 +63,9 @@
                                     <td class="table-text">
                                         <div>{{ $message->name }}</div>
                                     </td>
-
                                     <!-- Delete Button -->
                                     <td>
+                                        @if (Auth::user()->id==$message->user_id)
                                         <form action="{{ url('message/'.$message->id) }}" method="POST">
                                             {!! csrf_field() !!}
                                             {!! method_field('DELETE') !!}
@@ -74,6 +74,7 @@
                                                 <i class="fa fa-btn fa-trash"></i>Delete
                                             </button>
                                         </form>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

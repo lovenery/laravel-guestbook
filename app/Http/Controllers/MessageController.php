@@ -16,24 +16,24 @@ class MessageController extends Controller
     protected $messages;
 
 
-    public function __construct(MessageRepository $messages)
+    public function __construct()//MessageRepository $messages)
     {
        $this->middleware('auth');
-       $this->messages = $messages;
+       //$this->messages = $messages;
     }
 
     public function index(Request $request)
     {
         // 等同於$messages = Message::where('user_id', $request->user()->id)->get();
         //$messages = $request->user()->messages()->get();
-//        return view('messages.index', [
-//            'messages' => $messages,
-//        ]);
-        
-        // 資源庫的寫法
+        $messages = Message::all();
         return view('messages.index', [
-            'messages' => $this->messages->forUser($request->user()),
+            'messages' => $messages,
         ]);
+        // 資源庫的寫法
+//        return view('messages.index', [
+//            'messages' => $this->messages->forUser($request->user()),
+//        ]);
 
 
     }
