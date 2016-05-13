@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::auth();
+
+Route::get('/messages', 'MessageController@index');
+Route::post('/message', 'MessageController@store');
+Route::delete('/message/{message}', 'MessageController@destroy');
