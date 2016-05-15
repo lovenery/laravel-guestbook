@@ -61,7 +61,7 @@
                                 <tr>
                                     <!-- Message Name -->
                                     <td class="table-text">
-                                        <div>{{ $message->name }}</div>
+                                        <a href="{{ url('messages/'.$message->id) }}"><div>{{ $message->name }}</div></a>
                                     </td>
                                     <!-- Delete Button -->
                                     <td>

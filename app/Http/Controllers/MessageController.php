@@ -57,4 +57,9 @@ class MessageController extends Controller
 
         return redirect('/messages');
     }
+    public function show(Message $message)//$id)
+    {
+        //$message = Message::find($id);
+        return $message;
+    }
 }
