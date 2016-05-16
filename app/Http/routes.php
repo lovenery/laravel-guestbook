@@ -23,3 +23,5 @@ Route::post('/message', 'MessageController@store');
 Route::delete('/message/{message}', 'MessageController@destroy');
 
 Route::get('messages/{message}', 'MessageController@show');
+
+Route::post('messages/{message}/notes', 'NotesController@store');

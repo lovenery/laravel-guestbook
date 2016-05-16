@@ -60,6 +60,8 @@ class MessageController extends Controller
     public function show(Message $message)//$id)
     {
         //$message = Message::find($id);
-        return $message;
+        return view('messages.show', [
+            'message' => $message
+        ]);
     }
 }
