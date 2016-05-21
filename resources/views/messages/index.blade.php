@@ -63,6 +63,17 @@
                                     <td class="table-text">
                                         <a href="{{ url('messages/'.$message->id) }}"><div>{{ $message->name }}</div></a>
                                     </td>
+
+                                    <!-- Edit Button -->
+                                    <td>
+                                        @if (Auth::user()->id==$message->user_id)
+                                        <form action="{{ url('messages/'.$message->id.'/edit') }}" method="GET">
+                                            <button type="submit" id="edit-message-{{ $message->id }}" class="btn btn-info">
+                                                <i class="fa fa-pencil fa-fw"></i>Edit
+                                            </button>
+                                        </form>
+                                        @endif
+                                    </td>
                                     <!-- Delete Button -->
                                     <td>
                                         @if (Auth::user()->id==$message->user_id)

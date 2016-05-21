@@ -64,4 +64,20 @@ class MessageController extends Controller
             'message' => $message
         ]);
     }
+
+    public function edit(Message $message)
+    {
+        return view('messages.edit',compact('message'));
+    }
+
+    public function update(Request $request, Message $message)
+    {
+        $this->authorize('update', $message);
+
+        $message->update([
+            'name' => $request->name
+        ]);
+        
+        return redirect('/messages');
+    }
 }

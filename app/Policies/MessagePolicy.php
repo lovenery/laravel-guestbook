@@ -26,4 +26,8 @@ class MessagePolicy
     {
         return $user->id === $message->user_id;
     }
+
+    public function update(User $user, Message $message){ 
+        return $user->id === $message->user_id;
+    }
 }
