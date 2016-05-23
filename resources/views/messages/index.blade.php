@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('js')
+    <script src='{{ asset("js/index.js") }}'></script>
+@endsection
 @section('content')
 
 <div class="container">
@@ -36,6 +38,7 @@
                         </div>
                     </div>
                 </form>
+                <button id="ajax" class="btn btn-default" style="float:right"><i class="fa fa-plus"></i>Ajax留言</button>
             </div>
         </div>
 
@@ -56,7 +59,7 @@
                         </thead>
 
                         <!-- Table Body -->
-                        <tbody>
+                        <tbody id="ajax-append">
                             @foreach ($messages as $message)
                                 <tr>
                                     <!-- Message Name -->

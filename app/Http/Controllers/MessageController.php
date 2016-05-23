@@ -47,6 +47,16 @@ class MessageController extends Controller
             'name' => $request->name,
         ]);
 
+        // ajax
+        $message = Message::orderby('created_at','desc')->first();
+        $response = array(
+            'id' => $message->id,
+            'message' => $message->name
+        );
+        if($request->ajax()){
+            return response()->json($response);
+        }
+
         return redirect('/messages');
     }
     public function destroy(Request $request, Message $message)
