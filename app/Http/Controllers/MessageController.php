@@ -69,6 +69,8 @@ class MessageController extends Controller
     }
     public function show(Message $message)//$id)
     {
+        //$message = Message::with('notes.user')->find(1);
+        $message->load('notes.user');
         //$message = Message::find($id);
         return view('messages.show', [
             'message' => $message
